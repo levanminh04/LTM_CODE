@@ -61,6 +61,7 @@ package tcp_tcp;//import java.io.*;
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 
 public class Bai2_tcp {
@@ -89,10 +90,10 @@ public class Bai2_tcp {
                 throw new IOException("Server đã đóng kết nối, không nhận được dữ liệu.");
             }
 
-            String res = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8).trim();
+            String res = new String(buffer).trim();
 
             // Tính tổng
-            List<String> nums = List.of(res.split("\\|"));
+            List<String> nums = Arrays.asList(res.split("\\|"));
             int sum = nums.stream()
                     .map(String::trim)
                     .filter(s -> !s.isEmpty())

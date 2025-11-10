@@ -2,6 +2,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 
 public class test {
@@ -20,7 +21,7 @@ public class test {
 
             String res = new String(buffer, 0,size,StandardCharsets.UTF_8);
 
-            int sum = List.of(res.split("\\|")).stream()
+            int sum = Arrays.asList(res.split("\\|")).stream()
                     .mapToInt(Integer::parseInt)
                     .sum();
 
